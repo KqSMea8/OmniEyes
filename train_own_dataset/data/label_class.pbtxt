@@ -1,0 +1,9 @@
+item {
+  id: 1
+  name: '7-11'
+}
+item {
+  id: 2
+  name: 'traffic_light'
+}
+
