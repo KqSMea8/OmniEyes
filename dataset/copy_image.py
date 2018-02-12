@@ -8,6 +8,7 @@ import os
 import argparse
 import shutil
 
+
 parser = argparse.ArgumentParser()
 parser.add_argument("--dir_path", help="path of all of the dirs")
 parser.add_argument("--output_img", help="output images path")
