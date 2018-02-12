@@ -4,7 +4,7 @@
 
 ## labelImg
 
-用來標記的工具
+免安裝網址 : http://tzutalin.github.io/labelImg/
 
 ## object_detection_app
 
