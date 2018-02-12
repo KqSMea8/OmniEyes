@@ -5,15 +5,17 @@ Created on Wed Nov  8 18:14:23 2017
 @author: jamie
 """
 import os
+import argparse
 import shutil
 
-base_dir = os.path.dirname(os.path.realpath(__file__))
-image_dir = os.path.join(base_dir, 'image')
-final_image_dir = os.path.join(base_dir,'final_image')
-final_xml_dir = os.path.join(base_dir,'final_xml')
+parser = argparse.ArgumentParser()
+parser.add_argument("--dir_path", help="path of all of the dirs")
+parser.add_argument("--output_img", help="output images path")
+parser.add_argument("--output_xml", help="output xmls path")
+args = parser.parse_args()
     
 dir_name = []
-for (dirpath, dirnames, filenames) in os.walk(image_dir):
+for (dirpath, dirnames, filenames) in os.walk(args.dir_path):
     dir_name.extend(dirnames)
     break
 
@@ -21,7 +23,7 @@ for d in dir_name:
     if 'done_' in d:
         print('[INFO] Process ' + d)
         file_name = []
-        d = os.path.join(image_dir, d)
+        d = os.path.join(args.dir_path, d)
         for (dirpath, dirnames, filenames) in os.walk(d):
             file_name.extend(filenames)
             break
@@ -29,5 +31,5 @@ for d in dir_name:
             if f.split('.')[1] == 'xml':
                 image = os.path.join(d, f.split('.')[0]+'.jpg')
                 xml = os.path.join(d, f.split('.')[0]+'.xml')
-                shutil.copyfile(image, os.path.join(final_image_dir, f.split('.')[0]+'.jpg'))
-                shutil.copyfile(xml, os.path.join(final_xml_dir, f.split('.')[0]+'.xml'))
+                shutil.copyfile(image, os.path.join(args.output_img, f.split('.')[0]+'.jpg'))
+                shutil.copyfile(xml, os.path.join(args.output_img, f.split('.')[0]+'.xml'))

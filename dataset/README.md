@@ -15,9 +15,9 @@
 ## get_frame.py
 
 執行時記得輸入執行當天的日期，例如
-:::info
+
 python get_frame.py 20180105
-:::
+
 目的是避免行車記錄器影片名稱重複，導致之後要加入新資料時很麻煩
 
 這個python檔會把video資料夾中，所有mp4檔名的檔案，用opencv每秒擷取一張frame，並存到image當中
