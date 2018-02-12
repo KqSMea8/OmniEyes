@@ -30,8 +30,15 @@ python get_frame.py 20180105
 
 標記完成的資料夾我們要手動在名字前面加上'done_'
 例如 20180105_PPG0001 -> done_20180105_PPG0001
-這個python檔會把image資料夾當中，所有名字前綴是done_的，裏面所有有image和xml的檔案pair（有被標記的才會有xml）
-複製到final_image和final_xml當中，以便訓練使用
+
+python copy_image.py --dir_path=111 --output_img=222 --output_xml=333
+
+111 : 存放所有資料的主目錄，底下包含多個資料夾例如 done_20180105_PPG0001 ，每個資料夾中直接存放image和xml
+222 : 最後所有image要存放的位置
+333 : 最後所有xml要存放的位置
+
+這個python檔會把路徑中所有名字前綴是done_的，裏面所有有image和xml的檔案pair（有被標記的才會有xml）
+複製到指定位置當中，以便訓練使用
 
 
 
